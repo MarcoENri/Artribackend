@@ -1,0 +1,4 @@
+FROM openjdk:8-alpine
+ADD target/artribackend-0.0.1-SNAPSHOT.jar /usr/share/artribackend.jar
+ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/artribackend.jar"]
+# cambiar appn por security
