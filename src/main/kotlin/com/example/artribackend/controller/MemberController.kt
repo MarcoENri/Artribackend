@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
+import com.example.artribackend.dto.ChangePasswordDTO
 
 @RestController
 @RequestMapping("/api/v1/member")
@@ -41,4 +42,12 @@ class MemberController {
     fun delete(@PathVariable ("id") id:Long):Boolean?{
         return memberService.delete(id)
     }
+
+    @PutMapping("/{id}/change-password")
+    fun changePassword(@PathVariable("id") id: Long, @RequestBody changePasswordDTO: ChangePasswordDTO): ResponseEntity<Member> {
+        val updatedMember = memberService.changePassword(id, changePasswordDTO.newPassword)
+        return ResponseEntity(updatedMember, HttpStatus.OK)
+    }
+
+
 }
