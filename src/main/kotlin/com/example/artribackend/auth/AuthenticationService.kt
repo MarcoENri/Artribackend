@@ -29,7 +29,6 @@ class AuthenticationService {
         }
 
         val member = Member().apply {
-            nickname = request.nickname
             name = request.name
             lastname = request.lastname
             age = request.age
@@ -55,7 +54,7 @@ class AuthenticationService {
 
         val user = repository.findByEmail(request.email)?.orElseThrow()
         val idMember = repository.findIdByEmail(request.email)?.id
-        val memberName = repository.findIdByEmail(request.email)?.nickname
+        val memberName = repository.findIdByEmail(request.email)?.email
         val roleMember = repository.findIdByEmail(request.email)?.role
 
         val jwtToken: String? = user?.let { jwtService.generateToken(it) }

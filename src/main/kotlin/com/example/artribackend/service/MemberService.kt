@@ -40,7 +40,6 @@ class MemberService {
                 lastname = member.lastname
                 age = member.age
                 email = member.email
-                nickname = member.nickname
                 role = member.role
                 passwordMember = member.passwordMember?.let { pwd -> passwordEncoder.encode(pwd) } ?: it.passwordMember
             }

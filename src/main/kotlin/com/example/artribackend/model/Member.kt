@@ -12,7 +12,6 @@ class Member : UserDetails {
     @Id
     @Column(updatable = false)
     var id:Long? = null
-    var nickname:String? = null
     var name:String? = null
     var lastname:String? = null
     var age: Long? = null
@@ -32,7 +31,7 @@ class Member : UserDetails {
     }
 
     override fun getUsername(): String? {
-        return nickname
+        return email
     }
     override fun isAccountNonExpired(): Boolean {
         return true
