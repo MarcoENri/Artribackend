@@ -22,10 +22,7 @@ class StatisticsService {
         return statisticsRepository.findAll()
     }
 
-    fun listall ():List<StatisticsView>{
-        return statisticsViewRepository.findAll()
-    }
-    
+
     fun listStatsMember(id: Long?): List<StatisticsView> {
         return statisticsViewRepository.findById(id)
     }
