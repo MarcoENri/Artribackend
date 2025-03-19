@@ -19,6 +19,10 @@ class StatisticsController {
     fun list():List<Statistics>{
         return statisticsService.list()
     }
+    @GetMapping("/all")
+    fun listall():List<StatisticsView>{
+        return statisticsService.listall()
+    }
 
     @GetMapping("/member")
     fun listWithMember ():ResponseEntity<*>{
